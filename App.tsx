@@ -5,6 +5,7 @@ import { ReportDisplay } from './components/ReportDisplay';
 import { analyzeImage } from './services/geminiService';
 import { AppStatus } from './types';
 import { LoadingSpinner } from './components/LoadingSpinner';
+import { Navbar } from './components/Navbar';
 
 const App: React.FC = () => {
   const [status, setStatus] = useState<AppStatus>(AppStatus.IDLE);
@@ -92,24 +93,27 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-900 text-slate-200 flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8">
-      <div className="w-full max-w-5xl mx-auto">
-        <header className="text-center mb-8">
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-cyan-300">
-            Image Extractor AI
-          </h1>
-          <p className="mt-2 text-lg text-slate-400">
-            Unggah gambar untuk dianalisis dan dapatkan laporan mendetail.
-          </p>
-        </header>
-        <main className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl shadow-2xl shadow-slate-950/50 p-4 sm:p-8 transition-all duration-500">
-          {renderContent()}
-        </main>
-         <footer className="text-center mt-8 text-slate-500 text-sm">
-          <p>Powered by Gemini AI</p>
-        </footer>
+    <>
+      <Navbar />
+      <div className="min-h-screen bg-slate-900 text-slate-200 flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8 pt-24">
+        <div className="w-full max-w-5xl mx-auto">
+          <header className="text-center mb-8">
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-cyan-300">
+              Image Extractor AI
+            </h1>
+            <p className="mt-2 text-lg text-slate-400">
+              Unggah gambar untuk dianalisis dan dapatkan laporan mendetail.
+            </p>
+          </header>
+          <main className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl shadow-2xl shadow-slate-950/50 p-4 sm:p-8 transition-all duration-500">
+            {renderContent()}
+          </main>
+          <footer className="text-center mt-8 text-slate-500 text-sm">
+            <p>Powered by Gemini AI</p>
+          </footer>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
