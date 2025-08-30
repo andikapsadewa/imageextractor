@@ -1,0 +1,5 @@
+{
+  "name": "Image Extractor AI",
+  "description": "An application where users can upload an image, and an AI will process and analyze the image to generate a text-based report.",
+  "requestFramePermissions": []
+}
